@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#14532d" />
+  <title>Village Care | Jupeda</title>
+  <style>
+    :root{--green:#14532d;--green2:#166534;--lime:#d9f99d;--ink:#17251b;--muted:#617067;--paper:#f6f8f3;--line:#dce5db;--white:#fff;--orange:#f59e0b}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);line-height:1.55}
+    a{color:inherit} .wrap{width:min(1100px,92%);margin:auto}
+    header{background:var(--green);color:white;padding:17px 0}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.2rem;letter-spacing:-.3px}
+    .logo{width:42px;height:42px;border-radius:14px;background:var(--lime);color:var(--green);display:grid;place-items:center;font-size:23px}
+    .tag{font-size:.85rem;color:#e1f4e5}
+    .hero{background:linear-gradient(120deg,#14532d,#1d713e);color:#fff;padding:58px 0 65px;position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid #ffffff25;border-radius:50%;right:-90px;top:-140px;box-shadow:0 0 0 45px #ffffff0b,0 0 0 95px #ffffff08}
+    .eyebrow{color:var(--lime);font-weight:750;letter-spacing:1.6px;text-transform:uppercase;font-size:.75rem}
+    h1{font-size:clamp(2.25rem,5vw,4rem);line-height:1.04;letter-spacing:-1.8px;margin:14px 0 18px;max-width:730px}
+    .hero p{max-width:620px;color:#e1f1e4;font-size:1.08rem;margin:0 0 25px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;padding:12px 18px;border-radius:12px;border:0;text-decoration:none;font:inherit;font-weight:750;cursor:pointer;transition:.15s}
+    .btn:hover{transform:translateY(-1px)} .btn-lime{background:var(--lime);color:#16351f}.btn-outline{border:1px solid #ffffff75;color:white;background:transparent}
+    main{padding:34px 0 60px}.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:-55px;position:relative;z-index:1}
+    .info{background:white;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 12px 35px #183c2210}
+    .info .symbol{font-size:1.45rem}.info small{display:block;color:var(--muted);margin-top:7px}.info strong{display:block;font-size:1.04rem;margin-top:4px}
+    .content-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;margin-top:32px;align-items:start}
+    .panel{background:white;border:1px solid var(--line);border-radius:20px;padding:clamp(20px,3vw,32px);box-shadow:0 8px 25px #183c2208}
+    .section-kicker{font-size:.74rem;letter-spacing:1.4px;color:var(--green2);font-weight:800;text-transform:uppercase}
+    h2{font-size:1.7rem;letter-spacing:-.6px;margin:7px 0 8px}.sub{color:var(--muted);margin:0 0 23px}
+    label{display:block;font-weight:700;font-size:.91rem;margin-bottom:7px}
+    input,select,textarea{width:100%;padding:12px 13px;border:1px solid #cbd8cc;border-radius:11px;background:#fff;color:var(--ink);font:inherit;outline:none}
+    input:focus,select:focus,textarea:focus{border-color:var(--green2);box-shadow:0 0 0 3px #16653418}
+    textarea{resize:vertical;min-height:130px}.field{margin-bottom:17px}.two{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+    .upload{border:1.5px dashed #a8bca9;border-radius:14px;padding:17px;background:#f9fbf7}
+    .upload input{border:0;padding:8px 0 0;background:transparent}.help{font-size:.81rem;color:var(--muted);margin:7px 0 0}
+    .preview{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}.preview img{width:82px;height:82px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
+    .submit{width:100%;background:var(--green);color:white;margin-top:4px;padding:14px}
+    .notice{background:#f0f8e9;border:1px solid #d6e8c7;padding:12px 14px;border-radius:12px;font-size:.84rem;color:#36543a;margin:14px 0 0}
+    .steps{display:grid;gap:17px;margin-top:22px}.step{display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:start}.num{width:40px;height:40px;background:#eaf5e3;color:var(--green);border-radius:13px;display:grid;place-items:center;font-weight:850}.step strong{display:block;margin-bottom:3px}.step p{margin:0;color:var(--muted);font-size:.91rem}
+    .contact{background:#f7faf4;border:1px solid var(--line);padding:18px;border-radius:14px;margin-top:22px}.contact p{margin:5px 0;color:var(--muted);font-size:.9rem}
+    .contact a{color:var(--green2);font-weight:800;text-decoration:none;overflow-wrap:anywhere}
+    .privacy{font-size:.82rem;color:var(--muted);margin-top:17px}
+    footer{background:#102b1a;color:#d9e9dc;padding:25px 0;font-size:.85rem}.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .toast{display:none;margin-top:12px;border-radius:10px;padding:12px;background:#fff3d6;color:#6d4800;font-size:.88rem}
+    @media(max-width:760px){.info-grid{grid-template-columns:1fr;margin-top:-32px}.content-grid{grid-template-columns:1fr}.hero{padding:46px 0 55px}.two{grid-template-columns:1fr}.tag{display:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand"><span class="logo" aria-hidden="true">⌂</span><span>Village Care</span></div>
+      <div class="tag">Community support · Jupeda</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Jupeda · Khammam</div>
+      <h1>Your village.<br>Our shared responsibility.</h1>
+      <p>Report local issues, share a photo, and help bring attention to problems that matter in our community.</p>
+      <div class="hero-actions">
+        <a class="btn btn-lime" href="#report">＋ Report a complaint</a>
+        <a class="btn btn-outline" href="https://wa.me/919392409982" target="_blank" rel="noopener">Contact Sarpanch on WhatsApp ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <section class="info-grid" aria-label="Village information">
+      <div class="info"><span class="symbol">📍</span><strong>Jupeda, Khammam</strong><small>Village location</small></div>
+      <div class="info"><span class="symbol">👤</span><strong>Vanavasam Narendar Reddy</strong><small>Sarpanch</small></div>
+      <div class="info"><span class="symbol">💬</span><strong>WhatsApp contact</strong><small><a href="https://wa.me/919392409982" target="_blank" rel="noopener">9392409982 · Message now</a></small></div>
+    </section>
+
+    <div class="content-grid">
+      <section class="panel" id="report">
+        <div class="section-kicker">Raise your voice</div>
+        <h2>Report a complaint</h2>
+        <p class="sub">Describe the issue clearly. Required fields are marked with *.</p>
+        <form id="complaintForm">
+          <div class="two">
+            <div class="field">
+              <label for="category">Complaint category *</label>
+              <select id="category" required>
+                <option value="">Select a category</option>
+                <option>Roads & drainage</option><option>Water supply</option><option>Streetlights</option>
+                <option>Sanitation & waste</option><option>Public facilities</option><option>Electricity</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="area">Issue location *</label>
+              <input id="area" required maxlength="160" placeholder="Street, landmark or ward" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="details">Complaint details *</label>
+            <textarea id="details" required maxlength="2500" placeholder="Explain what happened, where, and when…"></textarea>
+          </div>
+          <div class="two">
+            <div class="field">
+              <label for="reporter">Your name (optional)</label>
+              <input id="reporter" maxlength="100" autocomplete="name" placeholder="Name (optional)" />
+            </div>
+            <div class="field">
+              <label for="reply">Your contact (optional)</label>
+              <input id="reply" maxlength="40" placeholder="Phone or other contact (optional)" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="photos">Upload photos (optional)</label>
+            <div class="upload">
+              <input type="file" id="photos" accept="image/*" multiple />
+              <p class="help">Choose up to 4 photos, each up to 8 MB. Please avoid sharing private or sensitive images.</p>
+              <div id="preview" class="preview" aria-live="polite"></div>
+            </div>
+          </div>
+          <button class="btn submit" type="submit">Prepare complaint in WhatsApp ↗</button>
+          <div id="toast" class="toast" role="status"></div>
+          <div class="notice"><strong>Before you send:</strong> WhatsApp will open with your complaint text. Attach your selected photos in that chat yourself, then press Send.</div>
+          <p class="privacy">Please share only information needed to report the issue. This demo page does not store or submit complaints to a server.</p>
+        </form>
+      </section>
+
+      <aside class="panel">
+        <div class="section-kicker">How it works</div>
+        <h2>From report to action</h2>
+        <p class="sub">A simple way to bring local concerns to the village leadership.</p>
+        <div class="steps">
+          <div class="step"><div class="num">1</div><div><strong>Describe the issue</strong><p>Choose a category and provide the location and details.</p></div></div>
+          <div class="step"><div class="num">2</div><div><strong>Add a photo (optional)</strong><p>A clear photo can help explain the problem.</p></div></div>
+          <div class="step"><div class="num">3</div><div><strong>Review and send</strong><p>Check the message in WhatsApp and send it when ready.</p></div></div>
+        </div>
+        <div class="contact">
+          <strong>Village Sarpanch</strong>
+          <p>Vanavasam Narendar Reddy</p>
+          <p>Jupeda, Khammam</p>
+          <p>WhatsApp: <a href="https://wa.me/919392409982" target="_blank" rel="noopener">9392409982</a></p>
+          <p>Email: Not provided</p>
+          <p>Public phone: Not provided</p>
+        </div>
+        <p class="privacy">For emergencies or immediate danger, contact the appropriate emergency service directly instead of relying on this complaint form.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap foot"><span>© <span id="year"></span> Village Care · Jupeda</span><span>Built for a cleaner, safer, stronger community.</span></div>
+  </footer>
+<script>
+  const form = document.getElementById('complaintForm');
+  const filesInput = document.getElementById('photos');
+  const preview = document.getElementById('preview');
+  const toast = document.getElementById('toast');
+  const MAX_FILES = 4, MAX_SIZE = 8 * 1024 * 1024;
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  filesInput.addEventListener('change', () => {
+    preview.replaceChildren();
+    const files = [...filesInput.files];
+    if (files.length > MAX_FILES || files.some(f => !f.type.startsWith('image/') || f.size > MAX_SIZE)) {
+      toast.style.display = 'block';
+      toast.textContent = 'Please choose no more than 4 image files, each 8 MB or smaller.';
+      filesInput.value = '';
+      return;
+    }
+    toast.style.display = 'none';
+    files.forEach(file => {
+      const img = document.createElement('img');
+      img.alt = 'Selected complaint photo preview';
+      const url = URL.createObjectURL(file);
+      img.src = url;
+      img.onload = () => URL.revokeObjectURL(url);
+      preview.appendChild(img);
+    });
+  });
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const category = document.getElementById('category').value.trim();
+    const area = document.getElementById('area').value.trim();
+    const details = document.getElementById('details').value.trim();
+    const reporter = document.getElementById('reporter').value.trim();
+    const reply = document.getElementById('reply').value.trim();
+    const photos = [...filesInput.files];
+
+    if (!category || !area || !details) {
+      form.reportValidity();
+      return;
+    }
+    if (photos.length > MAX_FILES || photos.some(f => !f.type.startsWith('image/') || f.size > MAX_SIZE)) {
+      toast.style.display = 'block';
+      toast.textContent = 'Please check your selected photos (maximum 4 images, 8 MB each).';
+      return;
+    }
+
+    const lines = [
+      'VILLAGE CARE — COMPLAINT REPORT',
+      'Village: Jupeda, Khammam',
+      'To: Sarpanch Vanavasam Narendar Reddy',
+      '',
+      'Category: ' + category,
+      'Location: ' + area,
+      'Complaint: ' + details,
+      reporter ? 'Reported by: ' + reporter : '',
+      reply ? 'Contact for follow-up: ' + reply : '',
+      photos.length ? 'Photos to attach manually: ' + photos.length : 'Photos: None',
+      '',
+      'Please review this complaint. Thank you.'
+    ].filter(Boolean).join('\n');
+
+    const waUrl = 'https://wa.me/919392409982?text=' + encodeURIComponent(lines);
+    toast.style.display = 'block';
+    toast.textContent = photos.length
+      ? 'WhatsApp is opening. Your complaint text is prepared. Please attach your ' + photos.length + ' selected photo(s) in WhatsApp before sending.'
+      : 'WhatsApp is opening with your complaint text. Review it and press Send.';
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
+  });
+</script>
+</body>
+</html>
